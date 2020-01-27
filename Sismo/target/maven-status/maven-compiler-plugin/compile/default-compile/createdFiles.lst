@@ -1,0 +1,14 @@
+cl\earthquake\test\sismos\dto\SismoMagnitud.class
+cl\earthquake\test\sismos\service\impl\H2ServiceImpl.class
+cl\earthquake\test\sismos\dto\Coordinates.class
+cl\earthquake\test\sismos\service\impl\ConsultaServiceImpl.class
+cl\earthquake\test\sismos\config\Swagger2Config.class
+cl\earthquake\test\sismos\controller\ConsultaController.class
+cl\earthquake\test\sismos\SismoApplication.class
+cl\earthquake\test\sismos\dto\SismoFecha.class
+cl\earthquake\test\sismos\dto\Properties.class
+cl\earthquake\test\sismos\dto\Features.class
+cl\earthquake\test\sismos\util\Constantes.class
+cl\earthquake\test\sismos\service\H2Service.class
+cl\earthquake\test\sismos\dto\Geometry.class
+cl\earthquake\test\sismos\service\ConsultaService.class
