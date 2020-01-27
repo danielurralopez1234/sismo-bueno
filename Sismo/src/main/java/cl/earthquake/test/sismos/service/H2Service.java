@@ -1,7 +1,9 @@
 package cl.earthquake.test.sismos.service;
 
+import cl.earthquake.test.sismos.entitys.SismosEntity;
+
 public interface H2Service {
-	
-	void insertSysmo (Object obj)throws Exception; 
+
+	void addSismosHoy(SismosEntity sismos);
 
 }

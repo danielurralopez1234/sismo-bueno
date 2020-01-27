@@ -9,21 +9,17 @@ import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.earthquake.test.sismos.dto.SismoFecha;
 import cl.earthquake.test.sismos.dto.SismoMagnitud;
 import cl.earthquake.test.sismos.service.ConsultaService;
-import cl.earthquake.test.sismos.service.H2Service;
 
 
 @RestController
@@ -37,11 +33,8 @@ public class ConsultaController {
 	@Autowired		
     private ConsultaService consultaService;
 	
-	@Autowired		
-    private H2Service h2Service;
 	
-	
-	   @PostMapping(path="/fechas" , consumes = MediaType.APPLICATION_JSON_VALUE)
+	   @PostMapping(path="/fechas")
 	   @ResponseBody   
 	    public ResponseEntity<Object>  getSismosByFechas(@RequestBody SismoFecha sismoFecha){
 		   
@@ -60,7 +53,7 @@ public class ConsultaController {
 
 	    }
 	  
-	   @PostMapping(path="/magnitudes" , consumes = MediaType.APPLICATION_JSON_VALUE)
+	   @PostMapping(path="/magnitudes")
 	    @ResponseBody
 	    public ResponseEntity<Object> getSismosByMagnitudes(@RequestBody SismoMagnitud sismoMagnitud){   		   
 		   
@@ -86,7 +79,7 @@ public class ConsultaController {
 
 
 	    }
-	   @PostMapping(path="/fecha/hoy" , consumes = MediaType.APPLICATION_JSON_VALUE)
+	   @PostMapping(path="/fecha/hoy")
 	   @ResponseBody   
 	    public ResponseEntity<Object>  getSismosByFechaHoy(){
 		   LocalDate fechaDeHoy = LocalDate.now();
@@ -94,8 +87,6 @@ public class ConsultaController {
 	        logger.info("getSismosByFechaHoy: "+ fechaDeHoy );
 
 	        try{
-	            
-	            h2Service.insertSysmo(consultaService.getSismosByFechaHoy(fechaDeHoy));
 
 	            return new ResponseEntity<>(consultaService.getSismosByFechaHoy(fechaDeHoy), HttpStatus.OK);
 	        }
